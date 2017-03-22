@@ -1,0 +1,113 @@
+<!--i feel like i lost last week bc of medication; i am remedying that ASAP I fucking promise #yikes, i know-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I LUH THEM CRYSTALS game</title>
+  
+  <style type="text/css">
+
+    .crystal-image {
+      width: 69px;
+      height: 69px;
+    }
+
+
+  </style>
+
+
+
+</head>
+<body>
+
+
+
+
+
+<section>
+  <p>You will be given a random number at the start of the game.</p>
+
+  <p>There are four crystals below.  By clicking on a crystal you will add a specific amount of points to your total score.</p>
+
+  <p>You win the game by matching your total score to random number, you lose the game if your total score goes anove the random number.</p>
+
+  <p>The value of each crystal is hidden from you until you click on it.</p>
+
+  <p>Each time when the game starts, the game will change the values of each crystal.</p>
+
+
+</section>
+
+  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+
+  
+  <div id="crystals">
+  </div>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+  <script type="text/javascript">
+ 
+
+
+  var targetNumber = 82;
+
+  $("#number-to-guess").text(targetNumber);
+
+  var counter = 0;
+
+ 
+  var numberOptions = [5, 3, 4, 8];
+
+  
+  for (var i = 0; i < numberOptions.length; i++) {
+
+    
+    var imageCrystal = $("<img>");
+
+   
+    imageCrystal.addClass("crystal-image");
+
+    
+    imageCrystal.attr("src", "https://s-media-cache-ak0.pinimg.com/originals/ca/7d/af/ca7daf45e76a1dce894d8795734e4e8d.jpg");
+
+
+
+    
+    imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+
+   
+    $("#crystals").append(imageCrystal);
+  }
+
+  
+  $(".crystal-image").on("click", function() {
+
+    
+    
+    var crystalValue = ($(this).attr("data-crystalvalue"));
+    crystalValue = parseInt(crystalValue);
+   
+    counter += crystalValue;
+
+    
+    alert("New score: " + counter);
+
+    if (counter === targetNumber) {
+      alert("YAS GURL!");
+    }
+
+    else if (counter >= targetNumber) {
+      alert("bish please!!");
+    }
+
+  });
+
+  </script>
+
+
+</body>
+</html>
